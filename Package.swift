@@ -146,20 +146,20 @@ func packageProducts() -> [Product] {
 func packageDependencies() -> [Package.Dependency] {
   return [
     .package(
-      url: "https://github.com/google/promises.git",
+      url: "https://github.com/dylanray134-dotcom/promises.git",
       "2.4.0" ..< "3.0.0"
     ),
     googleAppMeasurementDependency(),
     .package(
-      url: "https://github.com/google/GoogleDataTransport.git",
+      url: "https://github.com/dylanray134-dotcom/GoogleDataTransport.git",
       "10.1.0" ..< "11.0.0"
     ),
     .package(
-      url: "https://github.com/google/GoogleUtilities.git",
+      url: "https://github.com/dylanray134-dotcom/GoogleUtilities.git",
       "8.1.3" ..< "9.0.0"
     ),
     .package(
-      url: "https://github.com/google/gtm-session-fetcher.git",
+      url: "https://github.com/dylanray134-dotcom/gtm-session-fetcher.git",
       "3.4.1" ..< "6.0.0"
     ),
     .package(
@@ -173,7 +173,7 @@ func packageDependencies() -> [Package.Dependency] {
       revision: "2c0bfd373289f4a7716db5d6db471640f91a6507"
     ),
     .package(
-      url: "https://github.com/firebase/leveldb.git",
+      url: "https://github.com/dylanray134-dotcom/leveldb.git",
       "1.22.2" ..< "1.23.0"
     ),
     .package(
@@ -181,7 +181,7 @@ func packageDependencies() -> [Package.Dependency] {
       revision: "935e2736044e71e5341663c3cc9a335ba6867a2b"
     ),
     .package(
-      url: "https://github.com/google/interop-ios-for-google-sdks.git",
+      url: "https://github.com/dylanray134-dotcom/interop-ios-for-google-sdks.git",
       "101.0.0" ..< "102.0.0"
     ),
     appCheckDependency(),
@@ -1070,8 +1070,8 @@ func packageTargets() -> [Target] {
         // `FirebaseSessionsObjC` target. Not explicitly depending on nanopb leads to
         // undefined symbol errors in Tuist based SPM builds.
         // See the conversations in
-        // - https://github.com/firebase/firebase-ios-sdk/issues/15276
-        // - https://github.com/firebase/firebase-ios-sdk/pull/15287
+        // - https://github.com/dylanray134-dotcom/firebase-ios-sdk/issues/15276
+        // - https://github.com/dylanray134-dotcom/firebase-ios-sdk/pull/15287
         .product(name: "nanopb", package: "nanopb"),
         .product(name: "Promises", package: "Promises"),
         .product(name: "GoogleDataTransport", package: "GoogleDataTransport"),
@@ -1439,9 +1439,9 @@ func firebaseCrashlyticsTarget() -> Target {
 }
 
 func googleAppMeasurementDependency() -> Package.Dependency {
-  let appMeasurementURL = "https://github.com/google/GoogleAppMeasurement.git"
+  let appMeasurementURL = "https://github.com/dylanray134-dotcom/GoogleAppMeasurement.git"
 
-  // Point SPM CI to the tip of main of https://github.com/google/GoogleAppMeasurement so that the
+  // Point SPM CI to the tip of main of https://github.com/dylanray134-dotcom/GoogleAppMeasurement so that the
   // release process can defer publishing the GoogleAppMeasurement tag until after testing.
   if Context.environment["FIREBASECI_USE_LATEST_GOOGLEAPPMEASUREMENT"] != nil {
     return .package(url: appMeasurementURL, branch: "main")
@@ -1462,7 +1462,7 @@ func abseilDependency() -> Package.Dependency {
     )
   } else {
     packageInfo = (
-      "https://github.com/google/abseil-cpp-binary.git",
+      "https://github.com/dylanray134-dotcom/abseil-cpp-binary.git",
       "1.2024072200.0" ..< "1.2024072300.0"
     )
   }
@@ -1478,7 +1478,7 @@ func grpcDependency() -> Package.Dependency {
   if shouldUseSourceFirestore {
     packageInfo = ("https://github.com/grpc/grpc-ios.git", "1.69.0" ..< "1.70.0")
   } else {
-    packageInfo = ("https://github.com/google/grpc-binary.git", "1.69.0" ..< "1.70.0")
+    packageInfo = ("https://github.com/dylanray134-dotcom/grpc-binary.git", "1.69.0" ..< "1.70.0")
   }
 
   return .package(url: packageInfo.url, packageInfo.range)
@@ -1776,7 +1776,7 @@ func isFoundationModelsSupportedPlatformSwiftSetting() -> SwiftSetting {
 }
 
 func appCheckDependency() -> Package.Dependency {
-  let appCheckURL = "https://github.com/google/app-check.git"
+  let appCheckURL = "https://github.com/dylanray134-dotcom/app-check.git"
 
   if let localPath = Context.environment["FIREBASE_APP_CHECK_LOCAL_PATH"] {
     return .package(path: localPath)
